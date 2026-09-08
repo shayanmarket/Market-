@@ -4,9 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Market | فروشگاه آنلاین</title>
+  <title>MARKET | فروشگاه آنلاین</title>
 
   <style>
+    :root {
+      --primary: #ffb800;
+      --dark: #171717;
+      --text: #1f1f1f;
+      --gray: #777;
+      --light: #f6f6f6;
+      --white: #ffffff;
+      --border: #e8e8e8;
+      --red: #e53935;
+      --green: #1c9c5a;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -14,151 +26,856 @@
       font-family: Tahoma, Arial, sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background: #f5f5f5;
+      background: var(--light);
+      color: var(--text);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    /* HEADER */
+
+    .topbar {
+      background: var(--dark);
+      color: white;
+    }
+
+    .header {
+      max-width: 1250px;
+      margin: auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: white;
+      font-size: 13px;
+      margin-right: 5px;
+    }
+
+    .search {
+      flex: 1;
+      display: flex;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .search input {
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 13px 16px;
       color: #222;
     }
 
-    header {
-      background: #222;
-      color: white;
-      padding: 20px;
-      text-align: center;
+    .search button {
+      border: none;
+      background: var(--primary);
+      padding: 0 20px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
-    header h1 {
-      color: #ffcc00;
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
+
+    .action-btn {
+      border: 1px solid #444;
+      background: transparent;
+      color: white;
+      padding: 10px 13px;
+      border-radius: 10px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .cart-count {
+      background: var(--primary);
+      color: #111;
+      border-radius: 50%;
+      padding: 2px 7px;
+      font-size: 12px;
+      margin-right: 4px;
+    }
+
+    /* NAV */
 
     nav {
-      margin-top: 15px;
+      background: white;
+      border-bottom: 1px solid var(--border);
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 10px;
+    .nav-content {
+      max-width: 1250px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      overflow-x: auto;
     }
+
+    .categories-btn {
+      background: #111;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 9px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .nav-link {
+      color: #444;
+      white-space: nowrap;
+    }
+
+    /* HERO */
 
     .hero {
-      background: white;
-      text-align: center;
-      padding: 50px 20px;
+      max-width: 1250px;
+      margin: 25px auto;
+      padding: 0 20px;
     }
 
-    .hero h2 {
-      font-size: 30px;
+    .hero-box {
+      min-height: 350px;
+      border-radius: 24px;
+      padding: 55px;
+      background:
+        linear-gradient(120deg, rgba(20,20,20,.95), rgba(45,45,45,.72)),
+        #222;
+      color: white;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-box::after {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      background: var(--primary);
+      border-radius: 50%;
+      left: -100px;
+      bottom: -180px;
+      opacity: .9;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: #111;
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      line-height: 1.6;
       margin-bottom: 15px;
     }
 
     .hero p {
-      color: #666;
+      color: #ddd;
+      line-height: 2;
       margin-bottom: 25px;
+      font-size: 17px;
     }
 
-    .btn {
+    .primary-btn {
       display: inline-block;
-      background: #ffcc00;
-      color: #222;
-      padding: 12px 25px;
-      border-radius: 8px;
-      text-decoration: none;
+      background: var(--primary);
+      color: #111;
+      padding: 14px 28px;
+      border-radius: 11px;
       font-weight: bold;
     }
 
-    .products {
-      padding: 40px 20px;
-      text-align: center;
+    /* GENERAL */
+
+    .container {
+      max-width: 1250px;
+      margin: auto;
+      padding: 25px 20px;
     }
 
-    .products h2 {
-      margin-bottom: 30px;
-    }
-
-    .product-list {
+    .section-title {
       display: flex;
-      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .section-title h2 {
+      font-size: 25px;
+    }
+
+    .view-all {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* CATEGORIES */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 15px;
+    }
+
+    .category {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .category:hover {
+      transform: translateY(-4px);
+    }
+
+    .category-icon {
+      width: 55px;
+      height: 55px;
+      margin: 0 auto 12px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff3cc;
+      font-size: 25px;
+    }
+
+    /* OFFER */
+
+    .offer {
+      background: linear-gradient(120deg, #111, #303030);
+      border-radius: 22px;
+      color: white;
+      padding: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 20px;
-      flex-wrap: wrap;
+    }
+
+    .offer h2 {
+      margin-bottom: 10px;
+    }
+
+    .offer p {
+      color: #ddd;
+    }
+
+    .discount {
+      color: var(--primary);
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    /* PRODUCTS */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
     }
 
     .product {
       background: white;
-      width: 220px;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: .2s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .product-image {
+      height: 210px;
+      background: #eeeeee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 55px;
+      position: relative;
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--red);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+
+    .product-info {
+      padding: 16px;
+    }
+
+    .product-category {
+      color: var(--gray);
+      font-size: 12px;
+      margin-bottom: 8px;
     }
 
     .product h3 {
-      margin-bottom: 10px;
+      font-size: 15px;
+      line-height: 1.8;
+      min-height: 52px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 15px;
     }
 
     .price {
-      color: #e63946;
       font-weight: bold;
-      margin: 15px 0;
+      font-size: 16px;
     }
 
-    footer {
-      background: #222;
+    .old-price {
+      color: #999;
+      text-decoration: line-through;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .stock {
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    .add-cart {
+      width: 100%;
+      margin-top: 15px;
+      border: none;
+      background: #111;
       color: white;
+      padding: 11px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    /* FEATURES */
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .feature {
+      background: white;
+      border-radius: 15px;
+      padding: 22px;
       text-align: center;
-      padding: 20px;
-      margin-top: 30px;
+      border: 1px solid var(--border);
+    }
+
+    .feature-icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: var(--gray);
+      font-size: 13px;
+      margin-top: 7px;
+      line-height: 1.8;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--dark);
+      color: white;
+      margin-top: 35px;
+      padding: 45px 20px 20px;
+    }
+
+    .footer-content {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    footer h3 {
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+
+    footer p,
+    footer li {
+      color: #bbb;
+      line-height: 2;
+      font-size: 14px;
+      list-style: none;
+    }
+
+    .copyright {
+      max-width: 1250px;
+      margin: 30px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      color: #999;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      .header {
+        flex-wrap: wrap;
+      }
+
+      .search {
+        order: 3;
+        flex-basis: 100%;
+      }
+
+      .categories {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-box {
+        padding: 35px 25px;
+        min-height: 310px;
+      }
+
+      .hero h1 {
+        font-size: 29px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .logo {
+        font-size: 24px;
+      }
+
+      .header {
+        gap: 12px;
+      }
+
+      .action-btn {
+        padding: 8px 10px;
+        font-size: 12px;
+      }
+
+      .nav-content {
+        gap: 18px;
+      }
+
+      .hero h1 {
+        font-size: 25px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .hero-box {
+        padding: 30px 20px;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .product-image {
+        height: 160px;
+      }
+
+      .product-info {
+        padding: 12px;
+      }
+
+      .product h3 {
+        font-size: 13px;
+      }
+
+      .products {
+        gap: 10px;
+      }
+
+      .features {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feature {
+        padding: 15px 8px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+
+      .offer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Market</h1>
+  <!-- HEADER -->
 
-    <nav>
-      <a href="#">خانه</a>
-      <a href="#products">محصولات</a>
-      <a href="#">تماس با ما</a>
-    </nav>
-  </header>
+  <div class="topbar">
+    <header class="header">
+
+      <a href="#" class="logo">
+        MARKET <span>مارکت</span>
+      </a>
+
+      <div class="search">
+        <input type="text" placeholder="جستجوی محصول، برند یا دسته‌بندی...">
+        <button>جستجو</button>
+      </div>
+
+      <div class="header-actions">
+        <button class="action-btn">ورود / ثبت‌نام</button>
+        <button class="action-btn">
+          🛒 سبد
+          <span class="cart-count">0</span>
+        </button>
+      </div>
+
+    </header>
+  </div>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <div class="nav-content">
+      <a href="#" class="categories-btn">☰ دسته‌بندی‌ها</a>
+      <a href="#" class="nav-link">خانه</a>
+      <a href="#special" class="nav-link">پیشنهاد ویژه</a>
+      <a href="#products" class="nav-link">محصولات</a>
+      <a href="#features" class="nav-link">چرا MARKET؟</a>
+      <a href="#contact" class="nav-link">تماس با ما</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
 
   <section class="hero">
-    <h2>به فروشگاه آنلاین Market خوش آمدید</h2>
-    <p>بهترین محصولات با قیمت مناسب</p>
-    <a href="#products" class="btn">مشاهده محصولات</a>
+    <div class="hero-box">
+      <div class="hero-content">
+        <span class="hero-badge">پیشنهاد امروز MARKET</span>
+
+        <h1>
+          خرید آنلاین، سریع، مطمئن و با بهترین قیمت
+        </h1>
+
+        <p>
+          محصولات مورد نیازت را راحت پیدا کن و با چند کلیک سفارش بده.
+          MARKET همیشه در کنار توست.
+        </p>
+
+        <a href="#products" class="primary-btn">
+          مشاهده محصولات ←
+        </a>
+      </div>
+    </div>
   </section>
 
-  <section class="products" id="products">
-    <h2>محصولات ما</h2>
+  <!-- CATEGORIES -->
 
-    <div class="product-list">
+  <section class="container">
+    <div class="section-title">
+      <h2>دسته‌بندی محصولات</h2>
+      <a href="#products" class="view-all">مشاهده همه ←</a>
+    </div>
 
-      <div class="product">
-        <h3>محصول شماره ۱</h3>
-        <p>توضیحات محصول</p>
-        <p class="price">۵۰۰٬۰۰۰ تومان</p>
-        <a href="#" class="btn">خرید</a>
+    <div class="categories">
+
+      <div class="category">
+        <div class="category-icon">👕</div>
+        پوشاک
       </div>
 
-      <div class="product">
-        <h3>محصول شماره ۲</h3>
-        <p>توضیحات محصول</p>
-        <p class="price">۷۰۰٬۰۰۰ تومان</p>
-        <a href="#" class="btn">خرید</a>
+      <div class="category">
+        <div class="category-icon">👟</div>
+        کفش
       </div>
 
-      <div class="product">
-        <h3>محصول شماره ۳</h3>
-        <p>توضیحات محصول</p>
-        <p class="price">۹۰۰٬۰۰۰ تومان</p>
-        <a href="#" class="btn">خرید</a>
+      <div class="category">
+        <div class="category-icon">📱</div>
+        دیجیتال
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🎧</div>
+        لوازم جانبی
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🏠</div>
+        خانه و آشپزخانه
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🎁</div>
+        سایر محصولات
       </div>
 
     </div>
   </section>
 
-  <footer>
-    <p>© تمامی حقوق برای Market محفوظ است</p>
+  <!-- SPECIAL OFFER -->
+
+  <section class="container" id="special">
+    <div class="offer">
+      <div>
+        <h2>🔥 جشنواره تخفیف MARKET</h2>
+        <p>محصولات منتخب با تخفیف ویژه و محدود</p>
+      </div>
+
+      <div class="discount">
+        تا 50٪ تخفیف
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+
+  <section class="container" id="products">
+
+    <div class="section-title">
+      <h2>محصولات پیشنهادی</h2>
+      <a href="#" class="view-all">مشاهده همه ←</a>
+    </div>
+
+    <div class="products">
+
+      <article class="product">
+        <div class="product-image">
+          👟
+          <span class="discount-badge">20٪ تخفیف</span>
+        </div>
+
+        <div class="product-info">
+          <p class="product-category">کفش</p>
+          <h3>کفش اسپرت مردانه مدل جدید</h3>
+
+          <div class="price-row">
+            <div>
+              <div class="price">۱,۴۹۰,۰۰۰ تومان</div>
+              <div class="old-price">۱,۸۰۰,۰۰۰ تومان</div>
+            </div>
+            <span class="stock">موجود</span>
+          </div>
+
+          <button class="add-cart">افزودن به سبد خرید</button>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-image">
+          🎧
+          <span class="discount-badge">15٪ تخفیف</span>
+        </div>
+
+        <div class="product-info">
+          <p class="product-category">دیجیتال</p>
+          <h3>هدفون بی‌سیم با کیفیت بالا</h3>
+
+          <div class="price-row">
+            <div>
+              <div class="price">۹۹۰,۰۰۰ تومان</div>
+              <div class="old-price">۱,۱۷۰,۰۰۰ تومان</div>
+            </div>
+            <span class="stock">موجود</span>
+          </div>
+
+          <button class="add-cart">افزودن به سبد خرید</button>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-image">
+          ⌚
+          <span class="discount-badge">30٪ تخفیف</span>
+        </div>
+
+        <div class="product-info">
+          <p class="product-category">اکسسوری</p>
+          <h3>ساعت مچی اسپرت و روزمره</h3>
+
+          <div class="price-row">
+            <div>
+              <div class="price">۲,۱۰۰,۰۰۰ تومان</div>
+              <div class="old-price">۳,۰۰۰,۰۰۰ تومان</div>
+            </div>
+            <span class="stock">موجود</span>
+          </div>
+
+          <button class="add-cart">افزودن به سبد خرید</button>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-image">
+          🎒
+          <span class="discount-badge">10٪ تخفیف</span>
+        </div>
+
+        <div class="product-info">
+          <p class="product-category">کیف و اکسسوری</p>
+          <h3>کوله‌پشتی مناسب استفاده روزانه</h3>
+
+          <div class="price-row">
+            <div>
+              <div class="price">۱,۲۵۰,۰۰۰ تومان</div>
+              <div class="old-price">۱,۴۰۰,۰۰۰ تومان</div>
+            </div>
+            <span class="stock">موجود</span>
+          </div>
+
+          <button class="add-cart">افزودن به سبد خرید</button>
+        </div>
+      </article>
+
+    </div>
+
+  </section>
+
+  <!-- FEATURES -->
+
+  <section class="container" id="features">
+
+    <div class="section-title">
+      <h2>چرا MARKET؟</h2>
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="feature-icon">🚚</div>
+        <h3>ارسال سریع</h3>
+        <p>ارسال سفارش در سریع‌ترین زمان ممکن</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">💳</div>
+        <h3>پرداخت امن</h3>
+        <p>خرید مطمئن و امن برای کاربران</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">💰</div>
+        <h3>بهترین قیمت</h3>
+        <p>قیمت مناسب و تخفیف‌های ویژه</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🎧</div>
+        <h3>پشتیبانی</h3>
+        <p>همراه شما قبل و بعد از خرید</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer id="contact">
+
+    <div class="footer-content">
+
+      <div>
+        <h3>MARKET | مارکت</h3>
+        <p>
+          MARKET یک فروشگاه آنلاین برای تجربه خرید سریع،
+          آسان و مطمئن است.
+        </p>
+      </div>
+
+      <div>
+        <h3>دسترسی سریع</h3>
+        <ul>
+          <li>خانه</li>
+          <li>محصولات</li>
+          <li>پیشنهادهای ویژه</li>
+          <li>تماس با ما</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>پشتیبانی</h3>
+        <ul>
+          <li>پیگیری سفارش</li>
+          <li>سوالات متداول</li>
+          <li>قوانین و مقررات</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 MARKET — تمامی حقوق محفوظ است
+    </div>
+
   </footer>
 
 </body>
