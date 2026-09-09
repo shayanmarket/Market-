@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MARKET | فروشگاه آنلاین</title>
+<style>
+:root{--primary:#ffb800;--dark:#171717;--text:#1f1f1f;--gray:#777;--light:#f6f6f6;--border:#e8e8e8;--red:#e53935;--green:#1c9c5a}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Tahoma,Arial,sans-serif}
+html{scroll-behavior:smooth}body{background:var(--light);color:var(--text)}
+a{text-decoration:none;color:inherit}button,input{font:inherit}
+.topbar{background:var(--dark);color:#fff}.header{max-width:1250px;margin:auto;padding:16px 20px;display:flex;align-items:center;gap:22px}
+.logo{font-size:28px;font-weight:bold;color:var(--primary);white-space:nowrap}.logo span{color:#fff;font-size:13px;margin-right:5px}
+.search{flex:1;display:flex;background:#fff;border-radius:12px;overflow:hidden}.search input{width:100%;border:0;outline:0;padding:13px 16px;color:#222}.search button{border:0;background:var(--primary);padding:0 20px;cursor:pointer;font-weight:bold}
+.header-actions{display:flex;gap:10px}.action-btn{border:1px solid #444;background:transparent;color:#fff;padding:10px 13px;border-radius:10px;cursor:pointer;white-space:nowrap}.cart-count{background:var(--primary);color:#111;border-radius:50%;padding:2px 7px;font-size:12px;margin-right:4px}
+nav{background:#fff;border-bottom:1px solid var(--border)}.nav-content{max-width:1250px;margin:auto;padding:14px 20px;display:flex;gap:25px;overflow-x:auto}.categories-btn{background:#111;color:#fff;padding:10px 16px;border-radius:9px;font-weight:bold;white-space:nowrap}.nav-link{color:#444;white-space:nowrap}
+.hero{max-width:1250px;margin:25px auto;padding:0 20px}.hero-box{min-height:350px;border-radius:24px;padding:55px;background:linear-gradient(120deg,rgba(20,20,20,.95),rgba(45,45,45,.72)),#222;color:#fff;display:flex;align-items:center;position:relative;overflow:hidden}.hero-box:after{content:"";position:absolute;width:340px;height:340px;background:var(--primary);border-radius:50%;left:-100px;bottom:-180px;opacity:.9}.hero-content{position:relative;z-index:1;max-width:650px}.hero-badge{display:inline-block;background:var(--primary);color:#111;padding:8px 15px;border-radius:30px;font-weight:bold;margin-bottom:18px}.hero h1{font-size:42px;line-height:1.6;margin-bottom:15px}.hero p{color:#ddd;line-height:2;margin-bottom:25px;font-size:17px}.primary-btn{display:inline-block;background:var(--primary);color:#111;padding:14px 28px;border-radius:11px;font-weight:bold}
+.container{max-width:1250px;margin:auto;padding:25px 20px}.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}.section-title h2{font-size:25px}.view-all{color:#666;font-size:14px}
+.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:15px}.category{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 10px;text-align:center;cursor:pointer;transition:.2s}.category:hover{transform:translateY(-4px)}.category-icon{width:55px;height:55px;margin:0 auto 12px;display:grid;place-items:center;border-radius:50%;background:#fff3cc;font-size:25px}
+.offer{background:linear-gradient(120deg,#111,#303030);border-radius:22px;color:#fff;padding:35px;display:flex;align-items:center;justify-content:space-between;gap:20px}.offer h2{margin-bottom:10px}.offer p{color:#ddd}.discount{color:var(--primary);font-size:30px;font-weight:bold}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.product{background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--border);transition:.2s}.product:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,0,0,.08)}.product-image{height:210px;background:#eee;display:flex;align-items:center;justify-content:center;font-size:55px;position:relative}.discount-badge{position:absolute;top:12px;right:12px;background:var(--red);color:#fff;padding:6px 10px;border-radius:8px;font-size:12px}.product-info{padding:16px}.product-category{color:var(--gray);font-size:12px;margin-bottom:8px}.product h3{font-size:15px;line-height:1.8;min-height:52px}.price-row{display:flex;align-items:center;justify-content:space-between;margin-top:15px}.price{font-weight:bold;font-size:16px}.old-price{color:#999;text-decoration:line-through;font-size:12px;margin-top:5px}.stock{color:var(--green);font-size:12px}.add-cart{width:100%;margin-top:15px;border:0;background:#111;color:#fff;padding:11px;border-radius:10px;cursor:pointer}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.feature{background:#fff;border-radius:15px;padding:22px;text-align:center;border:1px solid var(--border)}.feature-icon{font-size:30px;margin-bottom:10px}.feature p{color:var(--gray);font-size:13px;margin-top:7px;line-height:1.8}
+footer{background:var(--dark);color:#fff;margin-top:35px;padding:45px 20px 20px}.footer-content{max-width:1250px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}footer h3{margin-bottom:15px;color:var(--primary)}footer p,footer li{color:#bbb;line-height:2;font-size:14px;list-style:none}.copyright{max-width:1250px;margin:30px auto 0;padding-top:20px;border-top:1px solid #444;color:#999;text-align:center;font-size:13px}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:9999;padding:20px;overflow-y:auto}.modal.show{display:flex;align-items:center;justify-content:center}.modal-box,.cart-box{width:min(900px,100%);background:#fff;border-radius:22px;padding:25px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.3)}.close-modal{position:absolute;top:12px;left:15px;width:38px;height:38px;border:0;border-radius:50%;background:#eee;font-size:25px;cursor:pointer}.product-detail{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:15px}.detail-image{min-height:400px;border-radius:18px;background:#f1f1f1;display:grid;place-items:center;font-size:100px}.detail-info{padding:20px 5px}.detail-category{color:#777;font-size:13px}.detail-info h2{font-size:27px;line-height:1.8;margin:10px 0}.detail-stock{color:var(--green);margin:15px 0}.detail-price{margin:20px 0}.detail-price strong{display:block;font-size:25px}.detail-price del{color:#999;font-size:14px}.detail-description{color:#666;line-height:2;font-size:14px}.quantity-box{display:flex;align-items:center;gap:15px;margin:20px 0}.quantity-box button{width:38px;height:38px;border:0;border-radius:8px;background:#eee;cursor:pointer;font-size:22px}.detail-cart,.checkout-btn{width:100%;border:0;background:#111;color:#fff;padding:13px;border-radius:10px;cursor:pointer}.cart-box{width:min(650px,100%)}.cart-box h2{margin-bottom:20px}.cart-item{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid var(--border);padding:15px 0}.cart-item button{border:0;background:#fee;color:#c00;padding:7px 10px;border-radius:7px;cursor:pointer}.cart-total{display:flex;justify-content:space-between;padding:20px 0;font-size:18px}
+.toast{position:fixed;bottom:20px;right:20px;background:#111;color:#fff;padding:12px 18px;border-radius:10px;display:none;z-index:10000}
+@media(max-width:900px){.header{flex-wrap:wrap}.search{order:3;flex-basis:100%}.categories{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.hero-box{padding:35px 25px;min-height:310px}.hero h1{font-size:29px}.product-detail{grid-template-columns:1fr}.detail-image{min-height:260px}}
+@media(max-width:550px){.logo{font-size:24px}.header{gap:12px}.action-btn{padding:8px 10px;font-size:12px}.nav-content{gap:18px}.hero h1{font-size:25px}.hero p{font-size:14px}.hero-box{padding:30px 20px}.categories{grid-template-columns:repeat(2,1fr)}.product-image{height:160px}.product-info{padding:12px}.product h3{font-size:13px}.products{gap:10px}.features{grid-template-columns:1fr 1fr}.feature{padding:15px 8px}.footer-content{grid-template-columns:1fr}.offer{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
 
+<div class="topbar"><header class="header">
+<a href="#" class="logo">MARKET <span>مارکت</span></a>
+<div class="search"><input id="searchInput" type="text" placeholder="جستجوی محصول، برند یا دسته‌بندی..."><button onclick="searchProducts()">جستجو</button></div>
+<div class="header-actions"><button class="action-btn" onclick="showToast('بخش ورود و ثبت‌نام در نسخه بعدی اضافه می‌شود')">ورود / ثبت‌نام</button><button class="action-btn" onclick="openCart()">🛒 سبد <span class="cart-count" id="cartCount">0</span></button></div>
+</header></div>
+
+<nav><div class="nav-content"><a href="#" class="categories-btn">☰ دسته‌بندی‌ها</a><a href="#" class="nav-link">خانه</a><a href="#special" class="nav-link">پیشنهاد ویژه</a><a href="#products" class="nav-link">محصولات</a><a href="#features" class="nav-link">چرا MARKET؟</a><a href="#contact" class="nav-link">تماس با ما</a></div></nav>
+
+<section class="hero"><div class="hero-box"><div class="hero-content"><span class="hero-badge">پیشنهاد امروز MARKET</span><h1>خرید آنلاین، سریع، مطمئن و با بهترین قیمت</h1><p>محصولات مورد نیازت را راحت پیدا کن و با چند کلیک سفارش بده. MARKET همیشه در کنار توست.</p><a href="#products" class="primary-btn">مشاهده محصولات ←</a></div></div></section>
+
+<section class="container"><div class="section-title"><h2>دسته‌بندی محصولات</h2><a href="#products" class="view-all">مشاهده همه ←</a></div><div class="categories">
+<div class="category" onclick="filterCategory('پوشاک')"><div class="category-icon">👕</div>پوشاک</div>
+<div class="category" onclick="filterCategory('کفش')"><div class="category-icon">👟</div>کفش</div>
+<div class="category" onclick="filterCategory('دیجیتال')"><div class="category-icon">📱</div>دیجیتال</div>
+<div class="category" onclick="filterCategory('اکسسوری')"><div class="category-icon">🎧</div>لوازم جانبی</div>
+<div class="category"><div class="category-icon">🏠</div>خانه و آشپزخانه</div>
+<div class="category"><div class="category-icon">🎁</div>سایر محصولات</div>
+</div></section>
+
+<section class="container" id="special"><div class="offer"><div><h2>🔥 جشنواره تخفیف MARKET</h2><p>محصولات منتخب با تخفیف ویژه و محدود</p></div><div class="discount">تا 50٪ تخفیف</div></div></section>
+
+<section class="container" id="products"><div class="section-title"><h2>محصولات پیشنهادی</h2><a href="#products" class="view-all" onclick="renderProducts(allProducts)">مشاهده همه ←</a></div><div class="products" id="productList"></div></section>
+
+<section class="container" id="features"><div class="section-title"><h2>چرا MARKET؟</h2></div><div class="features">
+<div class="feature"><div class="feature-icon">🚚</div><h3>ارسال سریع</h3><p>ارسال سفارش در سریع‌ترین زمان ممکن</p></div>
+<div class="feature"><div class="feature-icon">💳</div><h3>پرداخت امن</h3><p>خرید مطمئن و امن برای کاربران</p></div>
+<div class="feature"><div class="feature-icon">💰</div><h3>بهترین قیمت</h3><p>قیمت مناسب و تخفیف‌های ویژه</p></div>
+<div class="feature"><div class="feature-icon">🎧</div><h3>پشتیبانی</h3><p>همراه شما قبل و بعد از خرید</p></div>
+</div></section>
+
+<footer id="contact"><div class="footer-content"><div><h3>MARKET | مارکت</h3><p>MARKET یک فروشگاه آنلاین برای تجربه خرید سریع، آسان و مطمئن است.</p></div><div><h3>دسترسی سریع</h3><ul><li>خانه</li><li>محصولات</li><li>پیشنهادهای ویژه</li><li>تماس با ما</li></ul></div><div><h3>پشتیبانی</h3><ul><li>پیگیری سفارش</li><li>سوالات متداول</li><li>قوانین و مقررات</li></ul></div></div><div class="copyright">© 2026 MARKET — تمامی حقوق محفوظ است</div></footer>
+
+<div id="productModal" class="modal"><div class="modal-box"><button class="close-modal" onclick="closeProduct()">×</button><div class="product-detail">
+<div class="detail-image" id="detailImage">👟</div><div class="detail-info"><span class="detail-category" id="detailCategory"></span><h2 id="detailName"></h2><div class="detail-stock" id="detailStock"></div><div class="detail-price"><strong id="detailPrice"></strong><del id="detailOldPrice"></del></div><p class="detail-description" id="detailDescription"></p><div class="quantity-box"><span>تعداد:</span><button onclick="changeQuantity(-1)">−</button><strong id="quantity">1</strong><button onclick="changeQuantity(1)">+</button></div><button class="detail-cart" onclick="addToCart()">🛒 افزودن به سبد خرید</button></div>
+</div></div></div>
+
+<div id="cartModal" class="modal"><div class="cart-box"><button class="close-modal" onclick="closeCart()">×</button><h2>🛒 سبد خرید</h2><div id="cartItems"></div><div class="cart-total">مبلغ نهایی: <strong id="cartTotal">۰ تومان</strong></div><button class="checkout-btn" onclick="showToast('صفحه تکمیل خرید در مرحله بعد اضافه می‌شود')">ادامه و تکمیل خرید</button></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const allProducts=[
+{id:1,name:'کفش اسپرت مردانه مدل جدید',category:'کفش',price:1490000,old:1800000,discount:'20٪',icon:'👟',stock:8,desc:'کفش اسپرت با طراحی زیبا و مناسب استفاده روزمره.'},
+{id:2,name:'هدفون بی‌سیم با کیفیت بالا',category:'دیجیتال',price:990000,old:1170000,discount:'15٪',icon:'🎧',stock:12,desc:'هدفون بی‌سیم مناسب استفاده روزمره و موسیقی.'},
+{id:3,name:'ساعت مچی اسپرت و روزمره',category:'اکسسوری',price:2100000,old:3000000,discount:'30٪',icon:'⌚',stock:5,desc:'ساعت اسپرت مناسب استفاده روزانه.'},
+{id:4,name:'کوله‌پشتی مناسب استفاده روزانه',category:'پوشاک',price:1250000,old:1400000,discount:'10٪',icon:'🎒',stock:10,desc:'کوله‌پشتی جادار و مناسب استفاده روزانه.'}
+];
+let cart=JSON.parse(localStorage.getItem('marketCart')||'[]'),selected=null,quantity=1;
+const toman=n=>n.toLocaleString('fa-IR')+' تومان';
+function renderProducts(list){const box=document.getElementById('productList');box.innerHTML=list.length?list.map(p=>`<article class="product"><div class="product-image">${p.icon}<span class="discount-badge">${p.discount} تخفیف</span></div><div class="product-info"><p class="product-category">${p.category}</p><h3>${p.name}</h3><div class="price-row"><div><div class="price">${toman(p.price)}</div><div class="old-price">${toman(p.old)}</div></div><span class="stock">${p.stock?'موجود':'ناموجود'}</span></div><button class="add-cart" onclick="openProduct(${p.id})">مشاهده و خرید</button></div></article>`).join(''):'<p>محصولی پیدا نشد.</p>'}
+function openProduct(id){selected=allProducts.find(p=>p.id===id);quantity=1;document.getElementById('quantity').textContent=quantity;document.getElementById('detailImage').textContent=selected.icon;document.getElementById('detailCategory').textContent=selected.category;document.getElementById('detailName').textContent=selected.name;document.getElementById('detailStock').textContent=selected.stock?'🟢 موجود':'🔴 ناموجود';document.getElementById('detailPrice').textContent=toman(selected.price);document.getElementById('detailOldPrice').textContent=toman(selected.old);document.getElementById('detailDescription').textContent=selected.desc;document.getElementById('productModal').classList.add('show')}
+function closeProduct(){document.getElementById('productModal').classList.remove('show')}
+function changeQuantity(n){quantity=Math.max(1,quantity+n);document.getElementById('quantity').textContent=quantity}
+function addToCart(){if(!selected||!selected.stock)return showToast('این محصول ناموجود است');let x=cart.find(i=>i.id===selected.id);if(x)x.qty+=quantity;else cart.push({id:selected.id,qty:quantity});saveCart();closeProduct();showToast('محصول به سبد خرید اضافه شد')}
+function saveCart(){localStorage.setItem('marketCart',JSON.stringify(cart));updateCartCount()}
+function updateCartCount(){document.getElementById('cartCount').textContent=cart.reduce((s,i)=>s+i.qty,0)}
+function openCart(){renderCart();document.getElementById('cartModal').classList.add('show')}
+function closeCart(){document.getElementById('cartModal').classList.remove('show')}
+function renderCart(){const box=document.getElementById('cartItems');if(!cart.length){box.innerHTML='<p>سبد خرید خالی است.</p>';document.getElementById('cartTotal').textContent='۰ تومان';return}let total=0;box.innerHTML=cart.map(i=>{let p=allProducts.find(x=>x.id===i.id);let sum=p.price*i.qty;total+=sum;return `<div class="cart-item"><span>${p.icon} ${p.name} × ${i.qty}</span><strong>${toman(sum)}</strong><button onclick="removeCart(${p.id})">حذف</button></div>`}).join('');document.getElementById('cartTotal').textContent=toman(total)}
+function removeCart(id){cart=cart.filter(i=>i.id!==id);saveCart();renderCart()}
+function searchProducts(){let q=document.getElementById('searchInput').value.trim().toLowerCase();renderProducts(allProducts.filter(p=>(p.name+' '+p.category).toLowerCase().includes(q)));document.getElementById('products').scrollIntoView()}
+function filterCategory(cat){renderProducts(allProducts.filter(p=>p.category===cat));document.getElementById('products').scrollIntoView()}
+function showToast(msg){let t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',2200)}
+document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter')searchProducts()});
+renderProducts(allProducts);updateCartCount();
+</script>
+</body>
+</html>
